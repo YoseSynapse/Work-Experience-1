@@ -749,7 +749,31 @@ img {
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
+
   }
+
+  .hero-inner {
+  flex-direction: column;
+}
+
+.hero-media {
+  width: 100%;
+  flex-shrink: 1;
+  order: -1;
+}
+
+.playbook-grid {
+  grid-template-columns: 1fr;
+}
+
+.site-header--home .container {
+  flex-wrap: wrap;
+}
+
+.site-header--home .nav-links {
+  flex-wrap: wrap;
+  gap: 8px 0;
+}
 
   h2 {
     font-size: 30px;
