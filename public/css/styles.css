@@ -766,7 +766,7 @@ img {
         .site-header--home .nav-links {
                 flex-wrap: wrap;
         }
-
+      }
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
@@ -839,6 +839,7 @@ img {
         
     .playbook-grid{
       grid-template-columns: 1fr;
+    
     }
 
   .cta-body {
