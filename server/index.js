@@ -10,9 +10,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public'), { extensions: ['html'] }));
 
 app.post('/contact', (req, res) => {
+  const website = (req.body.website || '').trim();
   const name = (req.body.name || '').trim();
   const email = (req.body.email || '').trim();
   const message = (req.body.message || '').trim();
+
+   if (website) {
+   console.log('[spam] Dropped a submission: the honeypot field was filled.');
+   return res.json({ ok: true });
+  }
+  const formLoadedAt = Number(req.body.formLoadedAt);
+
+  if (!formLoadedAt || Date.now() - formLoadedAt < 3000) {
+    console.log('[spam] Dropped a submission: it arrived in under 3 seconds.');
+   return res.json({ ok: true });
+  }
 
   if (!name || !email || !message) {
     return res.status(400).json({ ok: false, error: 'Please fill in your name, email and message.' });

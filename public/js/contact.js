@@ -1,5 +1,6 @@
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
+const formLoadedAt = Date.now();
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -9,7 +10,8 @@ form.addEventListener('submit', async (event) => {
   statusEl.textContent = '';
   statusEl.className = 'form-status';
 
-  const data = Object.fromEntries(new FormData(form));
+
+  const data = { ...Object.fromEntries(new FormData(form)), formLoadedAt };
 
   try {
     const response = await fetch('/contact', {
