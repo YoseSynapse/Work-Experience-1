@@ -756,7 +756,10 @@ img {
   .hero-inner{
     gap: 40px;
   }
-  h1{ font-size: 44px;}
+  
+  .hero h1{ 
+    font-size: 44px;
+  }
   
 
         .site-header--home .container {
@@ -767,6 +770,16 @@ img {
                 flex-wrap: wrap;
         }
       }
+
+      @media (max-width: 900px)
+      { .hero-inner {
+        flex-direction: column;
+      }
+      .hero-media {
+        order: -1;
+      
+      }}
+      
 @media (max-width: 768px) {
   h1 {
     font-size: 40px;
